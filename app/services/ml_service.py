@@ -34,7 +34,7 @@ class MLPredictionService:
         )
 
         # Load your fine-tuned weights
-        state_dict = torch.load(WEIGHT_PATH, map_location=device)
+        state_dict = torch.load(WEIGHT_PATH, map_location=device, weights_only=False)
         self.model.load_state_dict(state_dict)
 
         self.model.eval()
