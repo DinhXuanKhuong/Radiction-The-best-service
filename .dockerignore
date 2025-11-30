@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+
+# Environments
+.env
+.venv/
+venv/
+
+# Node/npm (if any)
+node_modules/
+
+# VCS
+.git/
+.gitignore
+.gitattributes
+
+# Editor/OS
+.DS_Store
+.vscode/
+
+# Build artifacts
+build/
+dist/
+
+# Runtime-generated files
+app/static/uploads/
+app/static/uploads/wordclouds/
+app/database/*.db
