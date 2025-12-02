@@ -9,6 +9,13 @@ from transformers import AutoTokenizer, RobertaForSequenceClassification
 from underthesea import word_tokenize
 import torch.nn.functional as F
 
+# quant_config = BitsAndBytesConfig(
+#     load_in_4bit=True,
+#     bnb_4bit_quant_type="nf4",        # NF4 tốt hơn fp4
+#     bnb_4bit_compute_dtype=torch.bfloat16,
+#     bnb_4bit_use_double_quant=True,   # tiết kiệm thêm ~20-30MB
+# )
+
 class MLPredictionService:
 
     def __init__(self):
@@ -29,6 +36,7 @@ class MLPredictionService:
         # Load base PhoBERT architecture with 5 classes
         self.model = RobertaForSequenceClassification.from_pretrained(
             "vinai/phobert-base",
+            # quantization_config=quant_config,
             num_labels=5,
             problem_type="single_label_classification"
         )
